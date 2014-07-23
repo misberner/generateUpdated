@@ -32,5 +32,5 @@ import scala.annotation.StaticAnnotation
  * It is illegal to use this annotation on anything but a case class.
  */
 class generateUpdated extends StaticAnnotation {
-  def macroTransform(annottees: Any*) = macro generateUpdatedMacro.impl
+  def macroTransform(annottees: Any*) : Any = macro generateUpdatedMacro.impl
 }

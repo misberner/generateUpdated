@@ -15,7 +15,7 @@
  */
 package com.github.misberner.updated
 
-import scala.reflect.macros.Context
+import scala.reflect.macros.blackbox.Context
 
 /**
  * Implementation of the `generateUpdated` macro.
@@ -31,14 +31,10 @@ private[updated] object generateUpdatedMacro {
     import c.universe.Flag._
     
     // scala.Function1, as a raw type
-    val function1Ref = Select(Ident("scala"), TypeName("Function1"))
+    val function1Ref = Select(Ident(TermName("scala")), TypeName("Function1"))
     
-    /**
+    /*
      * Generates the `updated` method (DefDef) for the given class.
-     * 
-     * @param clsName the name of the class
-     * @param clsType the type of the class (possibly including type parameters)
-     * @param caseVals the case class parameters
      */
     def generateUpdated(clsName: TypeName, clsType: Tree, caseVals: List[ValDef]) = {
       val this_ = This(clsName)

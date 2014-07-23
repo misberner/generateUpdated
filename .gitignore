@@ -3,4 +3,6 @@
 /.settings/
 /.cache
 /bin/
+/target/
+/project/
 
