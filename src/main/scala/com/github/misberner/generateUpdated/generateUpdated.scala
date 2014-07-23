@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.misberner.updated
+package com.github.misberner.generateUpdated
 
 import scala.language.experimental.macros
 import scala.annotation.StaticAnnotation

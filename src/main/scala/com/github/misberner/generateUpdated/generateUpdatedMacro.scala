@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.misberner.updated
+package com.github.misberner.generateUpdated
 
 import scala.reflect.macros.blackbox.Context
 
@@ -25,7 +25,7 @@ import scala.reflect.macros.blackbox.Context
  * methods, see https://github.com/adamw/scala-macro-aop and
  * http://www.warski.org/blog/2013/09/automatic-generation-of-delegate-methods-with-macro-annotations/ . 
  */
-private[updated] object generateUpdatedMacro {
+private[generateUpdated] object generateUpdatedMacro {
   def impl(c: Context)(annottees: c.Expr[Any]*) : c.Expr[Any] = {
     import c.universe._
     import c.universe.Flag._
