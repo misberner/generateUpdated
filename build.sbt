@@ -1,16 +1,25 @@
-name := "generateUpdated"
+name := "updated"
 
-organization := "com.github.misberner.scala.generateUpdated"
+organization := "com.github.misberner.scalamacros"
 
 version := "0.0.2-SNAPSHOT"
 
 scalaVersion := "2.11.1"
 
-crossScalaVersions := Seq("2.11.1")
+crossScalaVersions := Seq("2.10.4", "2.11.1")
 
 scalacOptions += "-deprecation"
 
+resolvers += Resolver.sonatypeRepo("releases")
+
 libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-reflect" % _)
+
+unmanagedSourceDirectories in Compile <+= (scalaVersion, sourceDirectory in Compile) {
+  case (v, dir) if v startsWith "2.10." => dir / "scala-2.10"
+  case (v, dir) if v startsWith "2.11." => dir / "scala-2.11"
+}
+
+addCompilerPlugin("org.scalamacros" % "paradise" % "2.0.1" cross CrossVersion.full)
 
 publishMavenStyle := true
 

@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.misberner.generateUpdated
+package com.github.misberner.scalamacros.updated
 
-import scala.reflect.macros.blackbox.Context
+import Compat._
 
 /**
  * Implementation of the `generateUpdated` macro.
@@ -25,8 +25,11 @@ import scala.reflect.macros.blackbox.Context
  * methods, see https://github.com/adamw/scala-macro-aop and
  * http://www.warski.org/blog/2013/09/automatic-generation-of-delegate-methods-with-macro-annotations/ . 
  */
-private[generateUpdated] object generateUpdatedMacro {
-  def impl(c: Context)(annottees: c.Expr[Any]*) : c.Expr[Any] = {
+private[updated] object generateUpdatedMacro {
+  def impl(ctx: Context)(annottees: ctx.Expr[Any]*) : ctx.Expr[Any] = {
+    implicit val c = ctx
+    val annottees$ = annottees.map{_.asInstanceOf[c.Expr[Any]]}
+    
     import c.universe._
     import c.universe.Flag._
     
@@ -82,7 +85,7 @@ private[generateUpdated] object generateUpdatedMacro {
       }
     }
     
-    val inputs = annottees.map(_.tree).toList
+    val inputs = annottees$.map(_.tree).toList
     val outputs = inputs match {
       case (cls : ClassDef) :: rest =>
         process(cls, rest) match {
@@ -93,6 +96,6 @@ private[generateUpdated] object generateUpdatedMacro {
         c.error(c.enclosingPosition, "Annotation can only be used on classes")
         inputs
     }
-    c.Expr[Any](outputs.head)
+    c.Expr[Any](outputs.head).asInstanceOf[ctx.Expr[Any]]
   }
 }
