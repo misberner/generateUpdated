@@ -69,7 +69,7 @@ private[updated] object generateUpdatedMacro {
      */
     def process(cls: ClassDef, rest: List[Tree]) : Option[ClassDef] = {
       val ClassDef(mods, clsName, tparams, Template(parents, self, body)) = cls
-      if (!mods.hasFlag(Flag.CASE)) {
+      if (!mods.hasFlag(CASE)) {
         c.error(c.enclosingPosition, "Annotation can only be used on case classes")
         None
       }
