@@ -17,6 +17,7 @@ package com.github.misberner.scalamacros.updated
 
 import scala.language.experimental.macros
 import scala.annotation.StaticAnnotation
+import com.github.misberner.scalamacros.updated.macroimpl.generateUpdatedMacro
 
 
 /**

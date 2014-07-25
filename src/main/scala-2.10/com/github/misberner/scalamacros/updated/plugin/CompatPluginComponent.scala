@@ -13,15 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.misberner.scalamacros.updated
+package com.github.misberner.scalamacros.updated.plugin
 
-object Compat {
-  type Context = scala.reflect.macros.Context
-  
-  def CASEACCESSOR(implicit c: Context) = scala.reflect.internal.Flags.CASEACCESSOR.toLong.asInstanceOf[c.universe.FlagSet]
-  def SYNTHETIC(implicit c: Context) = scala.reflect.internal.Flags.SYNTHETIC.toLong.asInstanceOf[c.universe.FlagSet]
-  
-  def termNames(implicit c: Context) = c.universe.nme
-  def TermName(nme: String)(implicit c: Context) = c.universe.newTermName(nme)
-  def TypeName(nme: String)(implicit c: Context) = c.universe.newTypeName(nme)
+import scala.tools.nsc.plugins.PluginComponent
+
+/**
+ * Compatibility enabler for the nsc.plugins.PluginComponent class.
+ * 
+ *  @author Malte Isberner 
+ */
+abstract class CompatPluginComponent extends PluginComponent {
+  // In 2.10, there is no description field. Without this declaration,
+  // it would be illegal to write `override val description` in the component
+  // declaration.
+  val description : String
 }

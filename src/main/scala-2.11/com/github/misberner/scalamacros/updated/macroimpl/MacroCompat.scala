@@ -13,8 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.misberner.scalamacros.updated
+package com.github.misberner.scalamacros.updated.macroimpl
 
-object Compat {
+/**
+ * Compatibility enabler for macros.
+ * 
+ * @author Malte Isberner
+ */
+object MacroCompat {
+  // In 2.11+, there is an explicit distinction between whitebox
+  // and blackbox macros. scala.reflect.macros.Context is still
+  // available in 2.11, but its usage is deprecated.
   type Context = scala.reflect.macros.blackbox.Context
 }

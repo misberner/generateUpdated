@@ -2,7 +2,7 @@ name := "updated"
 
 organization := "com.github.misberner.scalamacros"
 
-version := "0.0.2"
+version := "0.0.3-SNAPSHOT"
 
 scalaVersion := "2.11.1"
 
@@ -13,6 +13,9 @@ scalacOptions += "-deprecation"
 resolvers += Resolver.sonatypeRepo("releases")
 
 libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-reflect" % _)
+
+libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-compiler" % _ % "provided")
+
 
 unmanagedSourceDirectories in Compile <+= (scalaVersion, sourceDirectory in Compile) {
   case (v, dir) if v startsWith "2.10." => dir / "scala-2.10"

@@ -1,0 +1,4 @@
+<plugin>
+	<name>generateUpdated</name>
+	<classname>com.github.misberner.scalamacros.updated.plugin.GenerateUpdatedPlugin</classname>
+</plugin>
