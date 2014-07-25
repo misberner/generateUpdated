@@ -16,7 +16,7 @@
 package com.github.misberner.scalamacros.updated.macroimpl
 
 import MacroCompat._
-import generator.UpdatedMethodGenerator
+import com.github.misberner.scalamacros.updated.generator.UpdatedMethodGenerator
 
 /**
  * Implementation of the `generateUpdated` macro.

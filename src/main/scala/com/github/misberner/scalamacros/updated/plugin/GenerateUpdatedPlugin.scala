@@ -24,7 +24,7 @@ import nsc.transform.Transform
 import nsc.transform.TypingTransformers
 import nsc.transform.InfoTransform
 
-import generator.UpdatedMethodGenerator
+import com.github.misberner.scalamacros.updated.generator.UpdatedMethodGenerator
 
 /**
  * New Scala Compiler plugin to automatically generate `updated` methods

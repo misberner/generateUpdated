@@ -4,9 +4,9 @@ organization := "com.github.misberner.scalamacros"
 
 version := "0.0.3-SNAPSHOT"
 
-scalaVersion := "2.11.1"
+scalaVersion := "2.11.2"
 
-crossScalaVersions := Seq("2.10.4", "2.11.1")
+crossScalaVersions := Seq("2.10.4", "2.11.2")
 
 scalacOptions += "-deprecation"
 
