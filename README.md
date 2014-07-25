@@ -68,5 +68,6 @@ After enabling Macro Paradise (see above), add the following snippet to the `dep
   <scope>provided</scope>  <!-- non-transitive -->
 </dependency>
 ```
-  
-  
+
+# Acknowledgement
+Realizing this library would not have been possible without Adam Warski's excellent [blog post](http://www.warski.org/blog/2013/09/automatic-generation-of-delegate-methods-with-macro-annotations/)/[example](https://github.com/adamw/scala-macro-aop) on automatic generation of delegate
