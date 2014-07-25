@@ -2,7 +2,7 @@ name := "updated"
 
 organization := "com.github.misberner.scalamacros"
 
-version := "0.0.3-SNAPSHOT"
+version := "0.0.3"
 
 scalaVersion := "2.11.2"
 
